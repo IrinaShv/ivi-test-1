@@ -1,0 +1,14 @@
+// Variables and mixins
+@import "_variables.scss";
+@import "_mixins.scss";
+
+// Base settings
+@import "base/_base.scss";
+
+// Сomponents
+@import "components/_coverBlock.scss";
+@import "components/_pills.scss";
+@import "components/_orderedList.scss";
+
+// Pages styling
+@import "pages/_index.scss";

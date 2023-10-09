@@ -1,0 +1,22 @@
+include ../mixins/mixins
+
+block vars
+
+doctype html
+html(lang="en")
+  head
+    block meta
+      include ../partials/head.pug
+    block styles
+      link(rel="stylesheet", href="css/main.css")
+    title=pageTitle
+
+  body
+    main.content
+      block content
+
+    //- footer
+    //-   block footer
+
+    block scripts
+      //- script(src="js/main.js")

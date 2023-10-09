@@ -1,0 +1,22 @@
+extends layouts/base.pug
+
+block vars
+  - var page = "index.html"
+  - var pageTitle = "Test task # 1"
+
+block content
+  header.coverBlock
+    div.coverBlock__mainContent
+      h2.coverBlock__text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    ul.coverBlock__footer.pills
+      li.pills__item 360p
+      li.pills__item 720p
+      li.pills__item HD
+      li.pills__item Full HD
+      li.pills__item 4k
+  
+  section
+    ol.orderedList
+      li.orderedList__item Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      li.orderedList__item Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      li.orderedList__item Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

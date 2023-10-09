@@ -1,0 +1,29 @@
+.orderedList {
+    counter-reset: custom-counter;
+
+    &__item {
+        counter-increment: custom-counter;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-left: 50px;
+        min-height: 40px;
+        position: relative;
+
+        &::before {
+            content: counter(custom-counter);
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: $colorAccent;
+            color: #fff;
+            font-size: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}
