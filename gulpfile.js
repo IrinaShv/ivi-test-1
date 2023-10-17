@@ -10,9 +10,12 @@ const {
 } = pkg;
 
 import pug from 'gulp-pug';
+import htmlmin from 'gulp-htmlmin';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 const sass = gulpSass(dartSass);
+import cleanCSS from 'gulp-clean-css';
+import uglify from 'gulp-uglify';
 import svgmin from 'gulp-svgmin';
 import imagemin from 'gulp-imagemin';
 import imageminJpegRecompress from 'imagemin-jpeg-recompress';
@@ -52,18 +55,21 @@ function browsersync() {
 function html() {
   return src(paths.dev.html)
     .pipe(pug({ pretty: true, }))
+    .pipe(htmlmin({ collapseWhitespace: true, })) 
     .pipe(dest(paths.build.html))
 }
 
 function css() {
   return src(paths.dev.css)
     .pipe(sass())
+    .pipe(cleanCSS()) 
     .pipe(dest(paths.build.css))
     .pipe(browserSync.stream())
 }
 
 function js() {
   return src(paths.dev.js)
+    .pipe(uglify())
     .pipe(dest(paths.build.js))
 }
 
