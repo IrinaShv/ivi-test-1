@@ -1,7 +1,13 @@
 'use strict';
 
 import pkg from 'gulp';
-const { gulp, src, dest, parallel, series, watch } = pkg;
+const {
+  src,
+  dest,
+  parallel, 
+  series, 
+  watch, 
+} = pkg;
 
 import pug from 'gulp-pug';
 import dartSass from 'sass';
@@ -17,7 +23,7 @@ const paths = {
     html: 'dev/pug/index.pug',
     img: 'dev/img/*.{*, !svg}',
     svg: 'dev/img/svg/*',
-    css: 'dev/sass/**/*',
+    css: 'dev/sass/**/*.scss',
     js: 'dev/js/**/*',
   },
   build: {
@@ -28,7 +34,7 @@ const paths = {
     js: 'build/js',
   },
   watch: {
-    html: 'dev/pug/**/*'
+    html: 'dev/pug/**/*',
   },
   serv: {
     html: 'build',
@@ -38,14 +44,14 @@ const paths = {
 function browsersync() {
   browserSync.init({
     server: {
-      baseDir: paths.serv.html
-    }
+      baseDir: paths.serv.html,
+    },
   })
 }
 
 function html() {
   return src(paths.dev.html)
-    .pipe(pug({ pretty: true }))
+    .pipe(pug({ pretty: true, }))
     .pipe(dest(paths.build.html))
 }
 
@@ -75,8 +81,8 @@ function img() {
         loops: 6,
         min: 70,
         max: 85,
-        quality: 'high'
-      })
+        quality: 'high',
+      }),
     ]))
     .pipe(dest(paths.build.img))
     .pipe(browserSync.stream());
